@@ -1,0 +1,55 @@
+ 
+
+
+[Function:ExportToJson]
+	01:Set:SVExportFormat:$$SysName:UTF8JSON
+	02:Set:SVExportLanguage:$$SysName:UTF8JSON
+	03:Set:SVPrintFileName:"ListOfLedgers.json"
+	04:Export Report:.:Yes:Yes
+	
+
+[#Menu:GatewayOfTally]
+	Add:Key Item:Json Report:J:Display:JsonReport
+	
+
+[Report:JsonReport]
+	Form:JsonReport
+	Plain JSON:Yes
+	
+[Form:JsonReport]
+	Part:JsonReport
+	Button:ExportJson
+	JSONTag:"LEDGERS"
+	
+[Part:JsonReport]
+	Scroll:Vertical
+	Line:JsonReport
+	Height:100% page
+	Width:100% page
+	Repeat:JsonReport:JsonLedgerCollection
+	
+[Line:JsonReport]
+	JSONTag:"LEDGER"
+	Fields:JsonLedgerName,JsonLedgerParent
+	Space Top:1
+	
+[Field:JsonLedgerName]
+	Set as:$Name
+	JSONTag:"Name"
+	Use:Name Field
+	
+
+[Field:JsonLedgerParent]
+	Set as:$Parent
+	JSONTag:"Group"
+	Use:Name Field
+
+
+[Collection:JsonLedgerCollection]
+	Type:Ledger
+	Fetch:Name,Parent
+	
+[Button:ExportJson]
+	Title:"Export JSON"
+	Key:ALT+E
+	Action:Call:ExportToJson
