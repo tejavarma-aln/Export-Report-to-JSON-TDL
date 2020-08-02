@@ -2,7 +2,7 @@
 
 In this tdl i wrote a report which can be exported to JSON format
 
-Load the tdl and opne JsonReport which will be displayed in GatewayOfTally
+Load the tdl and open JsonReport which will be displayed in GatewayOfTally
 
 In the report there is a button EXPORT JSON click on that button
 
