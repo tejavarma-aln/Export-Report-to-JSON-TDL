@@ -8,7 +8,7 @@ In the report there is a button EXPORT JSON click on that button
 
 Report will be exported to JSON with file name 'ListofLedgers.json'
 
-Report will be exported to tally working directory (##SvCurrentPath)
+Report will be exported to tally working directory
 
 More Info can be found here:
 
